@@ -8,16 +8,19 @@ public class Employee {
     private String department;
     private String gender;
     private double salary;
+    private int experinceInYears;
+
 
     public Employee(){
     }
 
-    public Employee(int id, String name, String department, String gender, double salary) {
+    public Employee(int id, String name, String department, String gender, double salary,int experinceInYears) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.gender = gender;
         this.salary = salary;
+        this.experinceInYears=experinceInYears;
     }
 
     public int getId() {
@@ -60,6 +63,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public int getExperinceInYears() {
+        return experinceInYears;
+    }
+
+    public void setExperinceInYears(int experinceInYears) {
+        this.experinceInYears = experinceInYears;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -68,6 +79,7 @@ public class Employee {
                 ", department='" + department + '\'' +
                 ", gender='" + gender + '\'' +
                 ", salary=" + salary +
+                ", experinceInYears=" + experinceInYears +
                 '}';
     }
 }

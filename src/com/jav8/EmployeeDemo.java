@@ -10,13 +10,13 @@ public class EmployeeDemo {
 
         //Hardcoded Employee objects
 
-        Employee e1= new Employee(10010,"Ajay K","IT","Male",50000);
-        Employee e2= new Employee(10019,"Kartik H","IT","Male",45000);
-        Employee e3= new Employee(10078,"Peter","HR","Male",60000);
-        Employee e4= new Employee(10060,"Kajal","Admin","Female",35000);
-        Employee e5= new Employee(10078,"Rita","HR","Female",37000);
-        Employee e6= new Employee(10034,"Ram","Admin","Male",58000);
-        Employee e7= new Employee(10077,"Krish","IT","Male",49000);
+        Employee e1= new Employee(10010,"Ajay K","IT","Male",50000,9);
+        Employee e2= new Employee(10019,"Kartik H","IT","Male",45000,7);
+        Employee e3= new Employee(10078,"Peter","HR","Male",60000,13);
+        Employee e4= new Employee(10060,"Kajal","Admin","Female",35000,3);
+        Employee e5= new Employee(10078,"Rita","HR","Female",37000,1);
+        Employee e6= new Employee(10034,"Ram","Admin","Male",58000,2);
+        Employee e7= new Employee(10077,"Krish","IT","Male",49000,6);
 
         employees.add(e1);
         employees.add(e2);
@@ -47,9 +47,10 @@ public class EmployeeDemo {
         long femaleCount= employees.stream().filter(emp->emp.getGender().equalsIgnoreCase("Female")).count();
         System.out.println("\nFemale Count = " +femaleCount);
 
-
-
-
+        System.out.println("\nList  Employees names Between the Experience 5 to 15");
+        employees.stream().filter(e->e.getExperinceInYears()>=5 && e.getExperinceInYears()<=15)
+                .sorted(Comparator.comparing(Employee::getExperinceInYears))
+                .forEach(e-> System.out.println(e.getName() +"=" +e.getExperinceInYears()));
     }
 }
 
